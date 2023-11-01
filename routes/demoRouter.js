@@ -1,4 +1,4 @@
-import { express } from '../index.js';
+import express from 'express';
 import { demoHandler } from '../controllers/demoController.js';
 
 const demoRouter = express.Router();

@@ -76,5 +76,4 @@ const demoHandler = (req, res) => {
       }
       );
 };
-
 export { demoHandler };
