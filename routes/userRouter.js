@@ -3,7 +3,11 @@ import { getAllUsers, createUser, loginUser } from '../controllers/user/userCont
 
 const userRouter = express.Router();
 
-userRouter.get('/', getAllUsers);
+userRouter.get('/', async (_, res) => {
+    const response = await getAllUsers();
+    res.json(response);
+});
+
 userRouter.post('/', async (req, res) => {
     const response = await createUser(req.body);
     res.json(response)

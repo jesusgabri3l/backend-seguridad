@@ -8,8 +8,8 @@ const userRegex = joi.object({
  })
 
  const loginRegex = joi.object({
-    username: joi.string().min(6).max(16).required(),
-    password: joi.string().min(6).max(256).required()
+    username: joi.string().max(16).required(),
+    password: joi.string().max(256).required()
  });
 
  export { userRegex, loginRegex }

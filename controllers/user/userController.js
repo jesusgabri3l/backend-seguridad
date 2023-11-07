@@ -46,9 +46,8 @@ const loginUser = async (credentials) => {
 
     const userDoc = userSnapShot.docs[0];
     const userData = userDoc.data();
-    const passwordEncrypted = crypto.createHash('sha1').update(credentials.password).digest('hex');
 
-    if (userData.password === passwordEncrypted) {
+    if (userData.password === credentials.password) {
         const token = jwt.sign({
             id: userDoc.id,
             name: userData.name,
@@ -58,7 +57,7 @@ const loginUser = async (credentials) => {
 
         return {message : 'Bienvenido', token}
     }
-    return {message: 'Nombre de usuario o contraseña incorrectas'}
+    else return {error: 'Contraseña incorrecta'}
 }
 
 export { getAllUsers, createUser, loginUser }
