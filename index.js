@@ -29,10 +29,11 @@ const firestore = getFirestore(app);
 // Rutas
 import { demoRouter } from './routes/demoRouter.js';
 import { userRouter } from './routes/userRouter.js';
+import { cryptoRouter } from './routes/cryptoRouter.js';
 
 server.use('/demo', demoRouter);
 server.use('/api/user', userRouter);
-
+server.use('/encrypt', cryptoRouter);
 
 // Server start 
 const port = process.env.PORT || 3000;
