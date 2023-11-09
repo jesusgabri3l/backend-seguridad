@@ -1,9 +1,9 @@
 import express from 'express';
 import { getAllUsers, createUser, loginUser } from '../controllers/user/userController.js';
-
+import { validate } from '../controllers/user/validateToken.js';
 const userRouter = express.Router();
 
-userRouter.get('/', async (_, res) => {
+userRouter.get('/', validate, async (_, res) => {
     const response = await getAllUsers();
     res.json(response);
 });
